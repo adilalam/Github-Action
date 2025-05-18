@@ -1,10 +1,12 @@
-name: Test Project
-# on: [push, workflow_dispatch]
-on: workflow_dispatch
+name: Event Demo 1
+on: [push, workflow_dispatch]
+# on: workflow_dispatch
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Output Github context
+        run: echo "${{ toJSON(github.event) }}"
       - name: Get Code
         uses: actions/checkout@v4
       - name: Install NodeJS
