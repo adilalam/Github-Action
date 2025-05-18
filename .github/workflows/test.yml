@@ -5,9 +5,15 @@ on:
   pull_request:
     types:
       - opened
-  # push:
-  #   branches:
-  #     - main
+    branches:
+      - main
+  push:
+    branches:
+      - main
+      - dev-* # dev-new dev-one
+      - feat/** # feat/new feat/new/button
+    paths-ignore:
+      - '.github/workflows/*'
   workflow_dispatch:
 jobs:
   test:
